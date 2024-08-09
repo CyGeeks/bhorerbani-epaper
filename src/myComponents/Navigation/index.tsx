@@ -1,7 +1,8 @@
 
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import {HamburgerMenuSidebar} from '../../components/hamburger-menu-sidebar.tsx';
+import {HamburgerMenuSidebar} from '../../components/hamburger-menu-sidebar';
+import { DatePicker } from "@/components/DatePicker";
 
 const Navigation = () => {
 
@@ -12,7 +13,7 @@ const Navigation = () => {
 
         <Link style={{borderRight:'1px solid grey'}} className='px-4' href=''>হোম</Link>
 
-        <Link style={{borderRight:'1px solid grey'}} className='px-4' href=''>০৯ আগস্ট ২০২৪</Link>
+        <DatePicker />
 
         <Link style={{borderRight:'1px solid grey'}} className='px-4' href=''>নগর সংস্করণ</Link>
 

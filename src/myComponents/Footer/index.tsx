@@ -8,7 +8,7 @@ import 'react-social-icons/instagram';
 const Footer = () => {
 
     return(
-        <div className="flex justify-between my-4">
+        <div className="flex justify-between items-center my-4">
             <div className="mt-2 ml-4 gap-y-2 flex flex-col">
                 <h1 className="text-3xl">BhorerBani E-Paper</h1>
 
