@@ -17,11 +17,13 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
+    "install": "^0.13.0",
     "lucide-react": "^0.427.0",
     "next": "14.2.5",
     "react": "^18",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
+    "react-img-mapper": "^1.5.1",
     "react-social-icons": "^6.17.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"

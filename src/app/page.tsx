@@ -3,6 +3,8 @@ import 'react-social-icons/twitter';
 import 'react-social-icons/facebook';
 import 'react-social-icons/youtube';
 import 'react-social-icons/instagram';
+import SinglePaper from '@/myComponents/SinglePaper/index';
+
 export default function Home() {
   return (
     <>
@@ -32,6 +34,8 @@ export default function Home() {
               <h1 className="text-white text-sm">Pdf</h1>
             </div>
           </div>
+
+          <SinglePaper />
 
         </div>
 
