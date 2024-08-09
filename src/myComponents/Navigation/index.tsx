@@ -11,13 +11,11 @@ const Navigation = () => {
 
         <HamburgerMenuSidebar />
 
-        <Link style={{borderRight:'1px solid grey'}} className='px-4' href=''>হোম</Link>
+        <Link style={{borderRight:'1px solid grey'}} className='px-4' href='/'>হোম</Link>
 
         <DatePicker />
 
-        <Link style={{borderRight:'1px solid grey'}} className='px-4' href=''>নগর সংস্করণ</Link>
-
-        <Link style={{borderRight:'1px solid grey'}} className='px-4' href=''>প্রথম পাতা</Link>
+        <Link style={{borderRight:'1px solid grey'}} className='px-4' href='/'>প্রথম পাতা</Link>
 
         <Link className='px-4' href=''>সব পাতা</Link>
         
