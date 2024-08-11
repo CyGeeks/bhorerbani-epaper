@@ -1,12 +1,13 @@
 "use client";
 
 import { DownloadCloud, FullscreenIcon, MoveLeftIcon, MoveRightIcon, Printer } from 'lucide-react';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ImageMapper from "react-img-mapper";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FullViewImage from '@/myComponents/FullView';
 import { AreaShape } from '@/lib/enums';
 import { AppState, AreaType } from '@/lib/interfaces';
+import ReactToPrint from 'react-to-print';
 
 
 const TOTAL_PAGES = 3; // Adjust according to the number of pages in your data
@@ -28,6 +29,7 @@ export default function Home() {
   const [fullScreenHandle, setFullScreenHandle] = useState<any>(useFullScreenHandle());
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const printRef = useRef();
 
   useEffect(() => {
     // Fetch JSON data
@@ -132,11 +134,17 @@ export default function Home() {
             <div className='w-full bg-[#D9D9D9] py-3 flex items-center justify-between'>
               <div className='w-full flex items-center justify-between'>
                 <div className='flex'>
-                  <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
-                    <Printer className='text-white' />
-                    <h1 className="text-white text-sm text-white">Print</h1>
-                  </div>
+                  <ReactToPrint
+                    trigger={() =>
 
+                      <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
+                        <Printer className='text-white' />
+                        <h1 className="text-white text-sm text-white">Print</h1>
+                      </div>
+                    }
+                    content={() => printRef.current}
+
+                  />
                   <a download href={`${state.imageToShow}`} style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
                     <DownloadCloud className='text-white' />
                     <h1 className="text-white text-sm text-white">Image</h1>
@@ -163,6 +171,7 @@ export default function Home() {
             >
               {state.imageToShow && (
                 <img className='p-4'
+                  ref={printRef}
                   style={{ height: '100%', width: 'auto', marginLeft: 'auto', marginRight: 'auto' }}
                   src={state.imageToShow}
                   alt={`Section ${state.imageToShow.split('/').pop()}`}
