@@ -48,22 +48,6 @@ export function HamburgerMenuSidebar() {
               </div>
             </CollapsibleContent>
           </Collapsible>
-          <Collapsible className="grid gap-4">
-            <CollapsibleTrigger className="flex w-full items-center text-lg font-semibold [&[data-state=open]>svg]:rotate-90">
-              Orders
-              <ChevronRightIcon className="ml-auto h-5 w-5 transition-all" />
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <div className="-mx-6 grid gap-6 bg-gray-100 p-6 dark:bg-gray-800">
-                <Link href="#" className="group grid h-auto w-full justify-start gap-1" prefetch={false}>
-                  <div className="text-sm font-medium leading-none group-hover:underline">View Orders</div>
-                </Link>
-                <Link href="#" className="group grid h-auto w-full justify-start gap-1" prefetch={false}>
-                  <div className="text-sm font-medium leading-none group-hover:underline">Track Order</div>
-                </Link>
-              </div>
-            </CollapsibleContent>
-          </Collapsible>
         </div>
       </SheetContent>
     </Sheet>

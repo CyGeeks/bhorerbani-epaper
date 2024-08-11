@@ -3,6 +3,7 @@ import 'react-social-icons/twitter';
 import 'react-social-icons/facebook';
 import 'react-social-icons/youtube';
 import 'react-social-icons/instagram';
+import Link from "next/link";
 
 
 const Footer = () => {
@@ -11,10 +12,12 @@ const Footer = () => {
         <div className="flex justify-between items-center my-4 py-4 bg-[#FBF4F4]">
             <div className="mt-2 ml-4 gap-y-2 flex flex-col">
 
-                <div className="">
-                    <img className="w-[200px]" src="/bhorerbani-logo-new.png" />
-                </div>
-
+                <Link href={'/'}>
+                    <div className="">
+                        <img className="w-[200px]" src="/bhorerbani-logo-new.png" />
+                    </div>
+                </Link>
+                
                 <h1 className='text-md text-black'>সম্পাদক: আলমগীর হোসেন । প্রকাশক: আবুল কালাম আজাদ</h1>
 
                 <h1 className='text-sm text-gray-500'>ঠিকানা: টাইমস মিডিয়া ভবন (৫ম তলা) | ৩৮৭ তেজগাঁও শিল্প এলাকা, ঢাকা - ১২০৮ । ফোন: ৫৫০২৯৮৩২-৩৮</h1>
