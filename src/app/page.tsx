@@ -10,6 +10,8 @@ import { AppState, AreaType } from '@/lib/interfaces';
 import ReactToPrint from 'react-to-print';
 import handlePrint from '@/lib/print';
 import { usePDF } from 'react-to-pdf';
+import handleGeneratePDF from '@/lib/downloadpdf';
+import GeneratePDFButton from '@/lib/downloadpdf';
 
 
 const TOTAL_PAGES = 3; // Adjust according to the number of pages in your data
@@ -116,10 +118,7 @@ export default function Home() {
 
                 <FullViewImage className="bg-[#C99F5D]" imageUrl={`${imageUrl}`} />
 
-                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
-                  <DownloadCloud />
-                  <h1 className="text-white text-sm">Pdf</h1>
-                </div>
+                <GeneratePDFButton imageUrl={`${imageUrl}`} />
               </div>
 
               <div className='flex mr-3 gap-x-4'>
