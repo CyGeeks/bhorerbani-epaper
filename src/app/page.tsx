@@ -1,7 +1,7 @@
 "use client";
 
 import { DownloadCloud, FullscreenIcon, MoveLeftIcon, MoveRightIcon, Printer } from 'lucide-react';
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ImageMapper from "react-img-mapper";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FullViewImage from '@/myComponents/FullView';
@@ -9,8 +9,25 @@ import { AreaShape } from '@/lib/enums';
 import { AppState, AreaType } from '@/lib/interfaces';
 import ReactToPrint from 'react-to-print';
 import handlePrint from '@/lib/print';
+import { usePDF } from 'react-to-pdf';
+
 
 const TOTAL_PAGES = 3; // Adjust according to the number of pages in your data
+
+const useCombinedRefs = (...refs) => {
+  return useCallback(
+    (node) => {
+      refs.forEach(ref => {
+        if (typeof ref === 'function') {
+          ref(node);
+        } else if (ref) {
+          ref.current = node;
+        }
+      });
+    },
+    [refs]
+  );
+};
 
 export default function Home() {
   const [state, setState] = useState<AppState>({
@@ -30,6 +47,9 @@ export default function Home() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const printRef = useRef();
+  const { toPDF, targetRef } = usePDF({filename: `${state.imageToShow}.pdf`});
+
+  const combinedRef = useCombinedRefs(printRef, targetRef);
 
   useEffect(() => {
     // Fetch JSON data
@@ -152,7 +172,7 @@ export default function Home() {
 
                   <FullViewImage className={'bg-[#505050]'} imageUrl={`${state.imageToShow}`} />
 
-                  <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
+                  <div onClick={() => toPDF()} style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
                     <DownloadCloud className='text-white' />
                     <h1 className="text-white text-sm text-white">Pdf</h1>
                   </div>
@@ -171,7 +191,7 @@ export default function Home() {
             >
               {state.imageToShow && (
                 <img className='p-4'
-                  ref={printRef}
+                  ref={combinedRef}
                   style={{ height: '100%', width: 'auto', marginLeft: 'auto', marginRight: 'auto' }}
                   src={state.imageToShow}
                   alt={`Section ${state.imageToShow.split('/').pop()}`}
