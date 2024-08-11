@@ -113,10 +113,10 @@ export default function Home() {
                   <h1 className="text-white text-sm">Print</h1>
                 </div>
 
-                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
+                <a download href={`${imageUrl}`} style={{ borderRadius: '5px' }}  className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
                   <DownloadCloud />
                   <h1 className="text-white text-sm">Image</h1> {/* Download Image when clicking this button */}
-                </div>
+                </a>
 
                 <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2" >
                   <FullscreenIcon />
@@ -183,7 +183,7 @@ export default function Home() {
                 </div>
 
                 <div style={{borderRadius:'5px', cursor:'pointer'}} onClick={fullScreenHandle.enter} className='bg-black p-2 mr-3'>
-                  <p className='text-white font-semibold'>সম্পূর্ণ ফুল স্ক্রিনে পড়ুন</p>
+                  <p className='text-white'>সম্পূর্ণ ফুল স্ক্রিনে পড়ুন</p>
                 </div>
               </div>
             </div>
