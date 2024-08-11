@@ -8,7 +8,7 @@ import FullViewImage from '@/myComponents/FullView';
 import { AreaShape } from '@/lib/enums';
 import { AppState, AreaType } from '@/lib/interfaces';
 import ReactToPrint from 'react-to-print';
-
+import handlePrint from '@/lib/print';
 
 const TOTAL_PAGES = 3; // Adjust according to the number of pages in your data
 
@@ -84,7 +84,7 @@ export default function Home() {
           <div style={{ borderRight: '1px solid grey', borderBottom: '1px solid grey', }} className=''>
             <div className='w-full bg-[#F7DFB9] py-3 flex items-center justify-between'>
               <div className='flex items-center'>
-                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
+                <div onClick={()=>handlePrint(imageUrl)} style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
                   <Printer />
                   <h1 className="text-white text-sm">Print</h1>
                 </div>
