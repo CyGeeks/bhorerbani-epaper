@@ -164,10 +164,10 @@ export default function Home() {
                     <h1 className="text-white text-sm text-white">Print</h1>
                   </div>
 
-                  <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
+                  <a download href={`${state.imageToShow}`} style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
                     <DownloadCloud className='text-white' />
                     <h1 className="text-white text-sm text-white">Image</h1>
-                  </div>
+                  </a>
 
                   <FullViewImage className={'bg-[#505050]'} imageUrl={`${state.imageToShow}`} />
 
