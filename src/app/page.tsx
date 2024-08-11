@@ -1,15 +1,9 @@
 "use client";
 
-import { DownloadCloud, FullscreenIcon, Menu, MoveLeftIcon, MoveRightIcon, Printer } from 'lucide-react';
-import 'react-social-icons/twitter';
-import 'react-social-icons/facebook';
-import 'react-social-icons/youtube';
-import 'react-social-icons/instagram';
-import SinglePaper from '@/myComponents/SinglePaper/index';
+import { DownloadCloud, FullscreenIcon, MoveLeftIcon, MoveRightIcon, Printer } from 'lucide-react';
 import React, { useEffect, useState } from "react";
 import ImageMapper from "react-img-mapper";
-
-const URL = "/papers/page11.jpg";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 enum AreaShape {
   Circle = "circle",
@@ -38,72 +32,45 @@ interface AppState {
   hoveredArea: AreaType | null;
   msg: string | null;
   moveMsg: string | null;
-  imageToShow: string | null; // Added to store the image path
+  imageToShow: string | null;
 }
 
 export default function Home() {
   const [state, setState] = useState<AppState>({
     color: 0,
-    colors: ["yellow", "orange", "purple"],
+    colors: [],
     map: {
-      name: "my-map",
-      areas:
-        [
-          {
-            name: "1",
-            shape: AreaShape.Rect,
-            coords: [14, 14, 687, 229],
-            lineWidth: 1,
-            center: [350.5, 121.5]
-          },
-          {
-            name: "2",
-            shape: AreaShape.Rect,
-            coords: [12, 241, 343, 381],
-            center: [177.5, 311]
-          },
-          {
-            name: "3",
-            shape: AreaShape.Rect,
-            coords: [11, 391, 347, 618],
-            center: [179, 504.5]
-          },
-          {
-            name: "4",
-            shape: AreaShape.Rect,
-            coords: [11, 624, 345, 873],
-            center: [178, 748.5]
-          },
-          {
-            name: "5",
-            shape: AreaShape.Rect,
-            coords: [351, 238, 571, 478],
-            center: [461, 358]
-          },
-          {
-            name: "6",
-            shape: AreaShape.Rect,
-            coords: [351, 482, 569, 874],
-            center: [460, 678]
-          },
-          {
-            name: "7",
-            shape: AreaShape.Rect,
-            coords: [577, 237, 687, 886],
-            center: [632, 561.5]
-          }
-        ],
-
+      name: "",
+      areas: []
     },
     hoveredArea: null,
     msg: null,
     moveMsg: null,
-    imageToShow: null, // Initialize imageToShow to null
+    imageToShow: null,
   });
 
+  const [fullScreenHandle, setFullScreenHandle] = useState<any>(useFullScreenHandle());
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
   useEffect(() => {
-    console.log(state.map.areas, "James");
-  }, [state]);
+    // Fetch JSON data
+    fetch('/data.json')
+      .then(response => response.json())
+      .then(data => {
+        setState(prevState => ({
+          ...prevState,
+          colors: data.colors,
+          map: {
+            name: "my-map",
+            areas: data.areas.map((area: any) => ({
+              ...area,
+              shape: AreaShape[area.shape as keyof typeof AreaShape] // Convert string to enum
+            }))
+          }
+        }));
+        setImageUrl(data.imageUrl);
+      });
+  }, []);
 
   const load = () => {
     setState({ ...state, msg: "Interact with image !" });
@@ -114,14 +81,13 @@ export default function Home() {
     setState({
       ...state,
       msg: `You clicked on ${area.shape} at coords ${JSON.stringify(area.coords)} !`,
-      imageToShow: imagePath, // Set the image path
+      imageToShow: imagePath
     });
   };
 
   return (
     <>
       <div className='grid grid-cols-2'>
-
         <div style={{ borderRight: '1px solid grey', borderBottom: '1px solid grey', }} className=''>
           <div className='w-full bg-[#F7DFB9] py-3 flex items-center justify-between'>
             <div className='flex items-center'>
@@ -135,51 +101,46 @@ export default function Home() {
                 <h1 className="text-white text-sm">Image</h1>
               </div>
 
-              <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2">
+              <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2" onClick={fullScreenHandle.enter}>
                 <FullscreenIcon />
-                <h1 className="text-white text-sm">Full View</h1> {/* Modify this */}
+                <h1 className="text-white text-sm">Full View</h1>
               </div>
 
               <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
                 <DownloadCloud />
                 <h1 className="text-white text-sm">Pdf</h1>
               </div>
-
             </div>
 
             <div className='flex mr-3 gap-x-4'>
-              <div style={{cursor:'pointer'}} className='flex gap-x-1'>
+              <div style={{ cursor: 'pointer' }} className='flex gap-x-1'>
                 <MoveLeftIcon />
                 <span>পূর্ববর্তী পৃষ্ঠা</span>
               </div>
 
-              <div style={{cursor:'pointer'}} className='flex gap-x-1'>
+              <div style={{ cursor: 'pointer' }} className='flex gap-x-1'>
                 <span>পরবর্তী পৃষ্ঠা</span>
                 <MoveRightIcon />
               </div>
             </div>
-
           </div>
 
           <div className="grid">
             <div className="presenter">
               <div className='flex items-center justify-center' style={{ position: "relative" }}>
-                <ImageMapper 
-                  src={URL}
+                <ImageMapper
+                  src={imageUrl || ""}
                   map={state.map}
                   width={700}
                   onLoad={load}
                   onClick={(area: any) => clicked(area)}
-                /> {/* Modify this */}
+                />
               </div>
             </div>
           </div>
-
-
         </div>
 
         <div style={{ borderBottom: '1px solid grey' }} className=''>
-
           <div className='w-full bg-[#D9D9D9] py-3 flex items-center justify-between'>
             <div className='flex'>
               <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
@@ -192,7 +153,7 @@ export default function Home() {
                 <h1 className="text-white text-sm text-white">Image</h1>
               </div>
 
-              <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2">
+              <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2" onClick={fullScreenHandle.enter}>
                 <FullscreenIcon className='text-white' />
                 <h1 className="text-white text-sm text-white">Full View</h1>
               </div>
@@ -202,34 +163,23 @@ export default function Home() {
                 <h1 className="text-white text-sm text-white">Pdf</h1>
               </div>
             </div>
-
-            <div className='flex gap-x-2 items-center'>
-              <div className="flex gap-x-3 mt-3">
-
-              </div>
-            </div>
-
-
           </div>
           <div
             style={{
-              maxHeight: '880px', // Set the maximum height to 900px
-              overflowY: 'auto', // Enable vertical scrolling when content exceeds the max height
+              maxHeight: '880px',
+              overflowY: 'auto',
             }}
           >
             {state.imageToShow && (
               <img className='p-4'
-                style={{ height: '100%', width: 'auto', marginLeft: 'auto', marginRight: 'auto' }} // Ensure the image scales within the container
+                style={{ height: '100%', width: 'auto', marginLeft: 'auto', marginRight: 'auto' }}
                 src={state.imageToShow}
                 alt={`Section ${state.imageToShow.split('/').pop()}`}
               />
             )}
           </div>
-
         </div>
-
       </div>
-
     </>
   );
 }
