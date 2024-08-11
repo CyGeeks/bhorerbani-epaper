@@ -1,6 +1,6 @@
 "use client";
 
-import { DownloadCloud, FullscreenIcon, Menu, Printer } from 'lucide-react'
+import { DownloadCloud, FullscreenIcon, Menu, Printer } from 'lucide-react';
 import 'react-social-icons/twitter';
 import 'react-social-icons/facebook';
 import 'react-social-icons/youtube';
@@ -38,12 +38,10 @@ interface AppState {
   hoveredArea: AreaType | null;
   msg: string | null;
   moveMsg: string | null;
+  imageToShow: string | null; // Added to store the image path
 }
 
-
-
 export default function Home() {
-
   const [state, setState] = useState<AppState>({
     color: 0,
     colors: ["yellow", "orange", "purple"],
@@ -100,31 +98,28 @@ export default function Home() {
     hoveredArea: null,
     msg: null,
     moveMsg: null,
+    imageToShow: null, // Initialize imageToShow to null
   });
 
   useEffect(() => {
-
     console.log(state.map.areas, "James");
-
   }, [state]);
-
 
   const load = () => {
     setState({ ...state, msg: "Interact with image !" });
   };
 
   const clicked = (area: AreaType) => {
+    const imagePath = `/papers/sections/${area.name}.jpg`;
     setState({
       ...state,
-      msg: `You clicked on ${area.shape} at coords ${JSON.stringify(
-        area.coords
-      )} !`,
+      msg: `You clicked on ${area.shape} at coords ${JSON.stringify(area.coords)} !`,
+      imageToShow: imagePath, // Set the image path
     });
   };
 
   return (
     <>
-
       <div className='grid grid-cols-2'>
 
         <div style={{ borderRight: '1px solid grey' }} className=''>
@@ -200,14 +195,30 @@ export default function Home() {
               </div>
             </div>
 
+
           </div>
+          <div
+            style={{
+              borderTop: '1px solid grey',
+              borderBottom: '1px solid grey',
+              maxHeight: '900px', // Set the maximum height to 900px
+              overflowY: 'auto', // Enable vertical scrolling when content exceeds the max height
+              display: 'flex', // Flexbox styling
+              justifyContent: 'center', // Center horizontally
+              alignItems: 'center', // Center vertically if necessary
+            }}
+          >
+            {state.imageToShow && (
+              <img className='p-4'
+                style={{ maxWidth: '100%', maxHeight: '100%' }} // Ensure the image scales within the container
+                src={state.imageToShow}
+                alt={`Section ${state.imageToShow.split('/').pop()}`}
+              />
+            )}
+          </div>
+
         </div>
 
-      </div>
-
-      <div style={{ borderTop: '1px solid grey', borderBottom: '1px solid grey' }} className="py-6">
-
-        
       </div>
 
     </>

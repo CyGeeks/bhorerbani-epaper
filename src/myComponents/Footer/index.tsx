@@ -10,7 +10,7 @@ const Footer = () => {
     return(
         <div className="flex justify-between items-center my-4 py-4 bg-[#FBF4F4]">
             <div className="mt-2 ml-4 gap-y-2 flex flex-col">
-                <h1 className="text-3xl">BhorerBani E-Paper</h1>
+                
 
                 <h1 className='text-md text-black'>সম্পাদক: আলমগীর হোসেন । প্রকাশক: আবুল কালাম আজাদ</h1>
 
