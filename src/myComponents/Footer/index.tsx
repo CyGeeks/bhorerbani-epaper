@@ -7,10 +7,13 @@ import 'react-social-icons/instagram';
 
 const Footer = () => {
 
-    return(
+    return (
         <div className="flex justify-between items-center my-4 py-4 bg-[#FBF4F4]">
             <div className="mt-2 ml-4 gap-y-2 flex flex-col">
-                
+
+                <div className="">
+                    <img className="w-[200px]" src="/bhorerbani-logo-new.png" />
+                </div>
 
                 <h1 className='text-md text-black'>সম্পাদক: আলমগীর হোসেন । প্রকাশক: আবুল কালাম আজাদ</h1>
 
@@ -25,10 +28,10 @@ const Footer = () => {
                 <h1 className="flex justify-center">ফলো করুনঃ</h1>
 
                 <div className="flex gap-x-3 mt-3">
-                 <SocialIcon url="https://twitter.com" />
-                 <SocialIcon url="https://facebook.com" />
-                 <SocialIcon url="https://instagram.com" />
-                 <SocialIcon url="https://youtube.com" />
+                    <SocialIcon url="https://twitter.com" />
+                    <SocialIcon url="https://facebook.com" />
+                    <SocialIcon url="https://instagram.com" />
+                    <SocialIcon url="https://youtube.com" />
 
                 </div>
             </div>

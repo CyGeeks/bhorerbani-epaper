@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
         <>
-            <div className="m-8">
+            <div className="m-2">
                 <img className="w-[400px]" src="/bhorerbani-logo-new.png" />
             </div>
 
