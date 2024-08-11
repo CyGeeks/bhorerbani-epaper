@@ -122,7 +122,7 @@ export default function Home() {
     <>
       <div className='grid grid-cols-2'>
 
-        <div style={{ borderRight: '1px solid grey' }} className=''>
+        <div style={{ borderRight: '1px solid grey', borderBottom: '1px solid grey', }} className=''>
           <div className='w-full bg-[#F7DFB9] py-3 flex items-center'>
 
             <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
@@ -163,7 +163,7 @@ export default function Home() {
 
         </div>
 
-        <div className=''>
+        <div style={{borderBottom:'1px solid grey'}} className=''>
 
           <div className='w-full bg-[#D9D9D9] py-3 flex items-center justify-between'>
             <div className='flex'>
@@ -199,18 +199,13 @@ export default function Home() {
           </div>
           <div
             style={{
-              borderTop: '1px solid grey',
-              borderBottom: '1px solid grey',
-              maxHeight: '900px', // Set the maximum height to 900px
+              maxHeight: '880px', // Set the maximum height to 900px
               overflowY: 'auto', // Enable vertical scrolling when content exceeds the max height
-              display: 'flex', // Flexbox styling
-              justifyContent: 'center', // Center horizontally
-              alignItems: 'center', // Center vertically if necessary
             }}
           >
             {state.imageToShow && (
               <img className='p-4'
-                style={{ maxWidth: '100%', maxHeight: '100%' }} // Ensure the image scales within the container
+                style={{ height: '100%', width:'auto', marginLeft:'auto', marginRight:'auto' }} // Ensure the image scales within the container
                 src={state.imageToShow}
                 alt={`Section ${state.imageToShow.split('/').pop()}`}
               />
