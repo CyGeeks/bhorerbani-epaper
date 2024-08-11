@@ -118,7 +118,7 @@ export default function Home() {
                   <h1 className="text-white text-sm">Image</h1> {/* Download Image when clicking this button */}
                 </div>
 
-                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2" onClick={fullScreenHandle.enter}>
+                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2" >
                   <FullscreenIcon />
                   <h1 className="text-white text-sm">Full View</h1>
                 </div>
@@ -132,11 +132,11 @@ export default function Home() {
               <div className='flex mr-3 gap-x-4'>
                 <div style={{ cursor: 'pointer' }} className='flex gap-x-1' onClick={goToPreviousPage}>
                   <MoveLeftIcon />
-                  <span>Previous Page</span>
+                  <span>পূর্ববর্তী পৃষ্ঠা</span>
                 </div>
 
                 <div style={{ cursor: 'pointer' }} className='flex gap-x-1' onClick={goToNextPage}>
-                  <span>Next Page</span>
+                  <span>পরবর্তী পৃষ্ঠা</span>
                   <MoveRightIcon />
                 </div>
               </div>
@@ -159,25 +159,31 @@ export default function Home() {
 
           <div style={{ borderBottom: '1px solid grey' }} className=''>
             <div className='w-full bg-[#D9D9D9] py-3 flex items-center justify-between'>
-              <div className='flex'>
-                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
-                  <Printer className='text-white' />
-                  <h1 className="text-white text-sm text-white">Print</h1>
+              <div className='w-full flex items-center justify-between'>
+                <div className='flex'>
+                  <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
+                    <Printer className='text-white' />
+                    <h1 className="text-white text-sm text-white">Print</h1>
+                  </div>
+
+                  <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
+                    <DownloadCloud className='text-white' />
+                    <h1 className="text-white text-sm text-white">Image</h1>
+                  </div>
+
+                  <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2">
+                    <FullscreenIcon className='text-white' />
+                    <h1 className="text-white text-sm text-white">Full View</h1>
+                  </div>
+
+                  <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
+                    <DownloadCloud className='text-white' />
+                    <h1 className="text-white text-sm text-white">Pdf</h1>
+                  </div>
                 </div>
 
-                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
-                  <DownloadCloud className='text-white' />
-                  <h1 className="text-white text-sm text-white">Image</h1>
-                </div>
-
-                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2" onClick={fullScreenHandle.enter}>
-                  <FullscreenIcon className='text-white' />
-                  <h1 className="text-white text-sm text-white">Full View</h1>
-                </div>
-
-                <div style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#505050] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
-                  <DownloadCloud className='text-white' />
-                  <h1 className="text-white text-sm text-white">Pdf</h1>
+                <div style={{borderRadius:'5px', cursor:'pointer'}} onClick={fullScreenHandle.enter} className='bg-black p-2 mr-3'>
+                  <p className='text-white font-semibold'>সম্পূর্ণ ফুল স্ক্রিনে পড়ুন</p>
                 </div>
               </div>
             </div>
