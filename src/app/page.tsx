@@ -10,7 +10,6 @@ import { AppState, AreaType } from '@/lib/interfaces';
 import ReactToPrint from 'react-to-print';
 import handlePrint from '@/lib/print';
 import { usePDF } from 'react-to-pdf';
-import handleGeneratePDF from '@/lib/downloadpdf';
 import GeneratePDFButton from '@/lib/downloadpdf';
 
 
@@ -66,7 +65,7 @@ export default function Home() {
             name: "my-map",
             areas: pageData.areas.map((area: any) => ({
               ...area,
-              shape: AreaShape[area.shape as keyof typeof AreaShape] // Convert string to enum
+              shape: AreaShape.Rect // Convert string to enum
             }))
           }
         }));
