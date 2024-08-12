@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+canvas {
+  border: 1px solid #000;
+  display: block;
+  margin: auto;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
