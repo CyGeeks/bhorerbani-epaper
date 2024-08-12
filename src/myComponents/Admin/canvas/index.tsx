@@ -37,7 +37,7 @@ const ImageCanvas: React.FC<ImageCanvasProps> = ({ imageUrl }) => {
     };
 
     // Load the image onto the canvas
-    fabric.Image.fromURL(imageUrl, (img:string) => {
+    fabric.Image.fromURL(imageUrl, (img: string) => {
       handleImageLoad(img);
     });
 
@@ -89,10 +89,24 @@ const ImageCanvas: React.FC<ImageCanvasProps> = ({ imageUrl }) => {
       }
     };
 
+    // Keydown event to delete selected rectangle
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Delete') {
+        console.log('Delete me now'); // Print the message to the console
+        const activeObject = canvas.getActiveObject();
+        if (activeObject && activeObject.type === 'rect') {
+          canvas.remove(activeObject);
+          canvas.discardActiveObject();
+          canvas.renderAll();
+        }
+      }
+    };
+
     // Attach event listeners
     canvas.on('mouse:down', onMouseDown);
     canvas.on('mouse:move', onMouseMove);
     canvas.on('mouse:up', onMouseUp);
+    window.addEventListener('keydown', onKeyDown);
 
     return () => {
       // Clean up the canvas and event listeners
