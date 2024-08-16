@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model areas {
+  id        Int    @id @default(autoincrement())
+  page_id   Int?
+  name      String @db.VarChar(10)
+  coords    String @db.VarChar(255)
+  lineWidth Int?
+  center    String @db.VarChar(255)
+  pages     pages? @relation(fields: [page_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "areas_ibfk_1")
+
+  @@index([page_id], map: "page_id")
+}
+
+model epapers {
+  id            Int      @id @default(autoincrement())
+  title         String?  @db.VarChar(255)
+  description   String?  @db.Text
+  creation_date DateTime @db.Date
+  pages         pages[]
+}
+
+model pages {
+  id        Int      @id @default(autoincrement())
+  epaper_id Int?
+  imageUrl  String   @db.VarChar(255)
+  areas     areas[]
+  epapers   epapers? @relation(fields: [epaper_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "pages_ibfk_1")
+
+  @@index([epaper_id], map: "epaper_id")
+}
+
+model users {
+  id       Int    @id @default(autoincrement())
+  username String @unique(map: "username") @db.VarChar(255)
+  password String @db.VarChar(255)
+}
