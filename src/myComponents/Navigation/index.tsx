@@ -15,9 +15,9 @@ const Navigation = () => {
 
         <DatePicker />
 
-        <Link style={{borderRight:'1px solid grey'}} className='px-4' href='/'>প্রথম পাতা</Link>
+        <Link style={{borderRight:'1px solid grey'}} className='px-4 hidden md:block' href='/'>প্রথম পাতা</Link>
 
-        <Link className='px-4' href='/allpages'>সব পাতা</Link>
+        <Link className='px-4 hidden md:block' href='/allpages'>সব পাতা</Link>
         
       </div>
 

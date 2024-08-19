@@ -34,11 +34,11 @@ const FullViewImage = ({ className, imageUrl }) => {
     <>
       <div 
         style={{ borderRadius: '5px', cursor: 'pointer' }} 
-        className={`ml-3 flex gap-x-1 w-[130px] items-center justify-center px-3 py-2 ${className}`} 
+        className={`ml-3 flex gap-x-1 md:w-[130px] w-[50px] items-center justify-center px-3 py-2 ${className}`} 
         onClick={openPopup}
       >
         <FullscreenIcon />
-        <h1 className="text-white text-sm">Full View</h1>
+        <h1 className="text-white text-sm hidden md:block">Full View</h1>
       </div>
       {isOpen && <CustomPopup imageUrl={imageUrl} onClose={closePopup} />}
     </>

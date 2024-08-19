@@ -55,10 +55,10 @@ const GeneratePDFButton = ({ imageUrl }) => {
     <div
       onClick={() => handleGeneratePDF(imageUrl)}
       style={{ borderRadius: '5px', cursor: 'pointer' }}
-      className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2"
+      className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[40px] py-2 md:w-[80px] items-center justify-center md:px-3 md:py-2"
     >
       <DownloadCloud />
-      <h1 className="text-white text-sm">PDF</h1>
+      <h1 className="text-white text-sm hidden md:block">PDF</h1>
     </div>
   );
 };

@@ -48,7 +48,7 @@ export default function Home() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const printRef = useRef();
-  const { toPDF, targetRef } = usePDF({filename: `${state.imageToShow}.pdf`});
+  const { toPDF, targetRef } = usePDF({ filename: `${state.imageToShow}.pdf` });
 
   const combinedRef = useCombinedRefs(printRef, targetRef);
 
@@ -102,17 +102,17 @@ export default function Home() {
     <>
       <FullScreen handle={fullScreenHandle}>
         <div className='grid grid-cols-2'>
-          <div style={{ borderRight: '1px solid grey', borderBottom: '1px solid grey', }} className=''>
-            <div className='w-full bg-[#F7DFB9] py-3 flex items-center justify-between'>
+          <div style={{ borderBottom: '1px solid grey', }} className='md:border-r md:border-gray-500'>
+            <div className='w-full md:bg-[#F7DFB9] py-3 flex items-center justify-between'>
               <div className='flex items-center'>
-                <div onClick={()=>handlePrint(imageUrl)} style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[80px] items-center justify-center px-3 py-2">
+                <div onClick={() => handlePrint(imageUrl)} style={{ borderRadius: '5px', cursor: 'pointer' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[40px] py-2 md:w-[80px] items-center justify-center md:px-3 md:py-2">
                   <Printer />
-                  <h1 className="text-white text-sm">Print</h1>
+                  <h1 className="text-white text-sm hidden md:block">Print</h1>
                 </div>
 
-                <a download href={`${imageUrl}`} style={{ borderRadius: '5px' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[90px] items-center justify-center px-3 py-2">
+                <a download href={`${imageUrl}`} style={{ borderRadius: '5px' }} className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[40px] py-2 md:w-[80px] items-center justify-center md:px-3 md:py-2">
                   <DownloadCloud />
-                  <h1 className="text-white text-sm">Image</h1> {/* Download Image when clicking this button */}
+                  <h1 className="text-white text-sm hidden md:block">Image</h1> {/* Download Image when clicking this button */}
                 </a>
 
                 <FullViewImage className="bg-[#C99F5D]" imageUrl={`${imageUrl}`} />
@@ -120,14 +120,16 @@ export default function Home() {
                 <GeneratePDFButton imageUrl={`${imageUrl}`} />
               </div>
 
-              <div className='flex mr-3 gap-x-4'>
+              <div  className='flex md:mr-3 gap-x-4 ml-2'>
                 <div style={{ cursor: 'pointer' }} className='flex gap-x-1' onClick={goToPreviousPage}>
                   <MoveLeftIcon />
-                  <span>পূর্ববর্তী পৃষ্ঠা</span>
+                  <span className='hidden md:block'>পূর্ববর্তী পৃষ্ঠা</span>
+                  <span className='md:hidden'>Next</span>
                 </div>
 
                 <div style={{ cursor: 'pointer' }} className='flex gap-x-1' onClick={goToNextPage}>
-                  <span>পরবর্তী পৃষ্ঠা</span>
+                  <span className='hidden md:block'>পরবর্তী পৃষ্ঠা</span>
+                  <span className='md:hidden'>Prev</span>
                   <MoveRightIcon />
                 </div>
               </div>
@@ -135,7 +137,7 @@ export default function Home() {
 
             <div className="grid">
               <div className="presenter">
-                <div className='flex items-center justify-center' style={{ position: "relative" }}>
+                <div className='flex items-center justify-center hidden md:block' style={{ position: "relative" }}>
                   <ImageMapper
                     src={imageUrl || ""}
                     map={state.map}
@@ -144,11 +146,20 @@ export default function Home() {
                     onClick={(area: any) => clicked(area)}
                   />
                 </div>
+                <div className='flex items-center justify-center md:hidden' style={{ position: "relative" }}>
+                  <ImageMapper
+                    src={imageUrl || ""}
+                    map={state.map}
+                    width={375}
+                    onLoad={load}
+                    onClick={(area: any) => clicked(area)}
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div style={{ borderBottom: '1px solid grey' }} className=''>
+          <div style={{ borderBottom: '1px solid grey' }} className='hidden md:block'>
             <div className='w-full bg-[#D9D9D9] py-3 flex items-center justify-between'>
               <div className='w-full flex items-center justify-between'>
                 <div className='flex'>
