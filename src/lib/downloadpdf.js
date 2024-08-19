@@ -1,7 +1,7 @@
 import React from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { DownloadCloud } from 'lucide-react'; // Ensure this icon component is correctly imported
+import { DownloadCloud, FileText } from 'lucide-react'; // Ensure this icon component is correctly imported
 
 const handleGeneratePDF = async (imageUrl) => {
   try {
@@ -57,7 +57,7 @@ const GeneratePDFButton = ({ imageUrl }) => {
       style={{ borderRadius: '5px', cursor: 'pointer' }}
       className="bg-[#C99F5D] ml-3 flex gap-x-1 w-[40px] py-2 md:w-[80px] items-center justify-center md:px-3 md:py-2"
     >
-      <DownloadCloud />
+      <FileText />
       <h1 className="text-white text-sm hidden md:block">PDF</h1>
     </div>
   );

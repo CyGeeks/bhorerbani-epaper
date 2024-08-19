@@ -11,7 +11,7 @@ const Navigation = () => {
 
         <HamburgerMenuSidebar />
 
-        <Link style={{borderRight:'1px solid grey'}} className='px-4' href='/'>হোম</Link>
+        <Link style={{borderRight:'1px solid grey'}} className='px-4 hidden md:block' href='/'>হোম</Link>
 
         <DatePicker />
 

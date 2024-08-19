@@ -9,7 +9,7 @@ import Link from "next/link";
 const Footer = () => {
 
     return (
-        <div className="flex justify-between items-center my-4 py-4 bg-[#FBF4F4]">
+        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center my-4 py-4 bg-[#FBF4F4]">
             <div className="mt-2 ml-4 gap-y-2 flex flex-col">
 
                 <Link href={'/'}>

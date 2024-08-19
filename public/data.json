@@ -2,40 +2,313 @@
   {
     "imageUrl": "/papers/page1.jpg",
     "areas": [
-      { "name": "1", "shape": "rect", "coords": [14, 14, 687, 229], "lineWidth": 1, "center": [350.5, 121.5] },
-      { "name": "2", "shape": "rect", "coords": [12, 241, 343, 381], "center": [177.5, 311] },
-      { "name": "3", "shape": "rect", "coords": [11, 391, 347, 618], "center": [179, 504.5] },
-      { "name": "4", "shape": "rect", "coords": [11, 624, 345, 873], "center": [178, 748.5] },
-      { "name": "5", "shape": "rect", "coords": [351, 238, 571, 478], "center": [461, 358] },
-      { "name": "6", "shape": "rect", "coords": [351, 482, 569, 874], "center": [460, 678] },
-      { "name": "7", "shape": "rect", "coords": [577, 237, 687, 886], "center": [632, 561.5] }
-    ],
-    "colors": ["yellow", "orange", "purple"]
+      {
+        "name": "1",
+        "shape": "rect",
+        "coords": [
+          14,
+          14,
+          687,
+          229
+        ],
+        "lineWidth": 1,
+        "center": [
+          350.5,
+          121.5
+        ]
+      },
+      {
+        "name": "2",
+        "shape": "rect",
+        "coords": [
+          12,
+          241,
+          343,
+          381
+        ],
+        "center": [
+          177.5,
+          311
+        ]
+      },
+      {
+        "name": "3",
+        "shape": "rect",
+        "coords": [
+          11,
+          391,
+          347,
+          618
+        ],
+        "center": [
+          179,
+          504.5
+        ]
+      },
+      {
+        "name": "4",
+        "shape": "rect",
+        "coords": [
+          11,
+          624,
+          345,
+          873
+        ],
+        "center": [
+          178,
+          748.5
+        ]
+      },
+      {
+        "name": "5",
+        "shape": "rect",
+        "coords": [
+          351,
+          238,
+          571,
+          478
+        ],
+        "center": [
+          461,
+          358
+        ]
+      },
+      {
+        "name": "6",
+        "shape": "rect",
+        "coords": [
+          351,
+          482,
+          569,
+          874
+        ],
+        "center": [
+          460,
+          678
+        ]
+      },
+      {
+        "name": "7",
+        "shape": "rect",
+        "coords": [
+          577,
+          237,
+          687,
+          886
+        ],
+        "center": [
+          632,
+          561.5
+        ]
+      }
+    ]
   },
   {
     "imageUrl": "/papers/page2.jpg",
     "areas": [
-      { "name": "1", "shape": "rect", "coords": [20, 20, 690, 230], "lineWidth": 1, "center": [355.5, 125.5] },
-      { "name": "2", "shape": "rect", "coords": [15, 250, 350, 390], "center": [180.5, 315] },
-      { "name": "3", "shape": "rect", "coords": [15, 400, 350, 620], "center": [185, 510.5] },
-      { "name": "4", "shape": "rect", "coords": [15, 630, 350, 880], "center": [185, 755.5] },
-      { "name": "5", "shape": "rect", "coords": [360, 240, 580, 480], "center": [470, 365] },
-      { "name": "6", "shape": "rect", "coords": [360, 485, 580, 880], "center": [470, 685] },
-      { "name": "7", "shape": "rect", "coords": [590, 240, 700, 890], "center": [640, 570.5] }
-    ],
-    "colors": ["blue", "green", "red"]
+      {
+        "name": "1",
+        "shape": "rect",
+        "coords": [
+          20,
+          20,
+          690,
+          230
+        ],
+        "lineWidth": 1,
+        "center": [
+          355.5,
+          125.5
+        ]
+      },
+      {
+        "name": "2",
+        "shape": "rect",
+        "coords": [
+          15,
+          250,
+          350,
+          390
+        ],
+        "center": [
+          180.5,
+          315
+        ]
+      },
+      {
+        "name": "3",
+        "shape": "rect",
+        "coords": [
+          15,
+          400,
+          350,
+          620
+        ],
+        "center": [
+          185,
+          510.5
+        ]
+      },
+      {
+        "name": "4",
+        "shape": "rect",
+        "coords": [
+          15,
+          630,
+          350,
+          880
+        ],
+        "center": [
+          185,
+          755.5
+        ]
+      },
+      {
+        "name": "5",
+        "shape": "rect",
+        "coords": [
+          360,
+          240,
+          580,
+          480
+        ],
+        "center": [
+          470,
+          365
+        ]
+      },
+      {
+        "name": "6",
+        "shape": "rect",
+        "coords": [
+          360,
+          485,
+          580,
+          880
+        ],
+        "center": [
+          470,
+          685
+        ]
+      },
+      {
+        "name": "7",
+        "shape": "rect",
+        "coords": [
+          590,
+          240,
+          700,
+          890
+        ],
+        "center": [
+          640,
+          570.5
+        ]
+      }
+    ]
   },
   {
     "imageUrl": "/papers/page3.jpg",
     "areas": [
-      { "name": "1", "shape": "rect", "coords": [30, 30, 695, 235], "lineWidth": 1, "center": [360.5, 130.5] },
-      { "name": "2", "shape": "rect", "coords": [18, 260, 355, 400], "center": [185.5, 320] },
-      { "name": "3", "shape": "rect", "coords": [20, 410, 355, 625], "center": [190, 515.5] },
-      { "name": "4", "shape": "rect", "coords": [20, 640, 355, 885], "center": [190, 760.5] },
-      { "name": "5", "shape": "rect", "coords": [370, 250, 590, 490], "center": [480, 370] },
-      { "name": "6", "shape": "rect", "coords": [370, 490, 590, 890], "center": [480, 690] },
-      { "name": "7", "shape": "rect", "coords": [600, 250, 710, 895], "center": [650, 580.5] }
-    ],
-    "colors": ["pink", "cyan", "lime"]
+      {
+        "name": "1",
+        "shape": "rect",
+        "coords": [
+          30,
+          30,
+          695,
+          235
+        ],
+        "lineWidth": 1,
+        "center": [
+          360.5,
+          130.5
+        ]
+      },
+      {
+        "name": "2",
+        "shape": "rect",
+        "coords": [
+          18,
+          260,
+          355,
+          400
+        ],
+        "center": [
+          185.5,
+          320
+        ]
+      },
+      {
+        "name": "3",
+        "shape": "rect",
+        "coords": [
+          20,
+          410,
+          355,
+          625
+        ],
+        "center": [
+          190,
+          515.5
+        ]
+      },
+      {
+        "name": "4",
+        "shape": "rect",
+        "coords": [
+          20,
+          640,
+          355,
+          885
+        ],
+        "center": [
+          190,
+          760.5
+        ]
+      },
+      {
+        "name": "5",
+        "shape": "rect",
+        "coords": [
+          370,
+          250,
+          590,
+          490
+        ],
+        "center": [
+          480,
+          370
+        ]
+      },
+      {
+        "name": "6",
+        "shape": "rect",
+        "coords": [
+          370,
+          490,
+          590,
+          890
+        ],
+        "center": [
+          480,
+          690
+        ]
+      },
+      {
+        "name": "7",
+        "shape": "rect",
+        "coords": [
+          600,
+          250,
+          710,
+          895
+        ],
+        "center": [
+          650,
+          580.5
+        ]
+      }
+    ]
   }
 ]
