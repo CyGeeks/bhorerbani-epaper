@@ -9,7 +9,7 @@ const Navigation = () => {
     return(
         <div style={{borderTop:'1px solid grey', borderBottom:'1px solid grey'}} className="py-2 px-4 flex items-center gap-x-2 text-md">
 
-        {/* <HamburgerMenuSidebar /> */}
+        <HamburgerMenuSidebar />
 
         <Link style={{borderRight:'1px solid grey'}} className='px-4' href='/'>হোম</Link>
 
