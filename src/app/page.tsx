@@ -124,13 +124,13 @@ export default function Home() {
               <div className='flex md:mr-3 gap-x-4 ml-2'>
                 <div style={{ cursor: 'pointer' }} className='flex gap-x-1' onClick={goToPreviousPage}>
                   <MoveLeftIcon />
-                  <span className='hidden md:block'>পূর্ববর্তী পৃষ্ঠা</span>
-                  <span className='md:hidden'>Next</span>
+                  <span className='hidden 2xl:block'>পূর্ববর্তী পৃষ্ঠা</span>
+                  <span className='2xl:hidden'>Next</span>
                 </div>
 
                 <div style={{ cursor: 'pointer' }} className='flex gap-x-1' onClick={goToNextPage}>
-                  <span className='hidden md:block'>পরবর্তী পৃষ্ঠা</span>
-                  <span className='md:hidden'>Prev</span>
+                  <span className='hidden 2xl:block'>পরবর্তী পৃষ্ঠা</span>
+                  <span className='2xl:hidden'>Prev</span>
                   <MoveRightIcon />
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function Home() {
                   <ImageMapper
                     src={imageUrl || ""}
                     map={state.map}
-                    width={700}
+                    width={650}
                     onLoad={load}
                     onClick={(area: any) => clicked(area)}
                   />
