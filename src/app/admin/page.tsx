@@ -1,3 +1,4 @@
+import { DatePicker } from "@/components/DatePicker";
 import ImageCanvas from "@/myComponents/Admin/canvas";
 import { ComputerIcon, LinkIcon, SaveIcon, TextCursorInputIcon, TrashIcon, ViewIcon } from "lucide-react";
 
@@ -35,7 +36,7 @@ export default function Admin() {
         </ul>
       </div>
 
-      <div className="col-span-8">
+      <div className="col-span-7">
 
         {/* Horizontal Toolbar */}
         <div className="flex items-center justify-between bg-gray-800 pb-4 px-4 text-white space-x-4 pt-12">
@@ -100,10 +101,12 @@ export default function Admin() {
         </div>
       </div>
 
-      <div className="col-span-2 bg-gradient-to-b from-gray-800 to-red-600 p-6 text-white">
+      <div className="col-span-3 bg-gradient-to-b from-gray-800 to-red-600 p-6">
         {/* Sidebar styling */}
-        <h2 className="text-xl font-bold mb-6">Admin Tools</h2>
-        <ul className="space-y-4">
+        <div className="my-4">
+          <DatePicker />
+        </div>
+        <ul className="space-y-4 text-white">
           <li>
             <a href="#" className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-700 transition-colors">
               <span className="text-xl">🏠</span>
