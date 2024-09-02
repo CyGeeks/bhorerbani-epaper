@@ -48,6 +48,17 @@ const ImageCanvas: React.FC<ImageCanvasProps> = ({ imageUrl }) => {
 
     // Mouse down event
     const onMouseDown = (o: fabric.IEvent) => {
+      const activeObject = canvas.getActiveObject();
+
+      // If an object is active, do not create a new rectangle
+      if (activeObject) {
+        if (activeObject.type === 'rect') {
+          // If the active object is a rectangle, we are resizing it
+          return;
+        }
+      }
+
+      // No active object, create a new rectangle
       isDown = true;
       const pointer = canvas.getPointer(o.e);
       origX = pointer.x;
