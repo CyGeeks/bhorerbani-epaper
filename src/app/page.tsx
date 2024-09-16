@@ -194,6 +194,7 @@ export default function Home() {
               </div>
             </div>
             <div
+              className='flex items-center justify-center'
               style={{
                 maxHeight: '880px',
                 overflowY: 'auto',
@@ -212,8 +213,8 @@ export default function Home() {
         </div>
       </FullScreen>
       
-{/*      <AllPages />
-*/}
+      {/*      <AllPages /> */}
+
     </>
   );
 }
