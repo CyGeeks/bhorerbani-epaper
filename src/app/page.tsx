@@ -213,7 +213,7 @@ export default function Home() {
         </div>
       </FullScreen>
       
-      {/*      <AllPages /> */}
+           <AllPages />
 
     </>
   );

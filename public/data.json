@@ -1,6 +1,7 @@
 [
   {
     "imageUrl": "/papers/page2.jpg",
+    "preview":"https://epaper.samakal.com/uploads/epaper/2024/09/16/thumb/page66e7420e8edcb.jpg",
     "areas": [
       {
         "name": "1",
@@ -105,6 +106,7 @@
   },
   {
     "imageUrl": "/papers/page1.jpg",
+    "preview":"https://epaper.samakal.com/uploads/epaper/2024/09/16/thumb/page66e7420e8edcb.jpg",
     "areas": [
       {
         "name": "1",
@@ -209,6 +211,7 @@
   },
   {
     "imageUrl": "/papers/page3.jpg",
+    "preview":"https://epaper.samakal.com/uploads/epaper/2024/09/16/thumb/page66e7420e8edcb.jpg",
     "areas": [
       {
         "name": "1",

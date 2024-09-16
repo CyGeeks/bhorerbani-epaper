@@ -39,16 +39,20 @@ const AllPages = () => {
   }, []);
 
   return (
-    <div className="row visible-xs mt-5">
-      <div className="col-md-12 p-0 bg-[#726a6a]">
-        <p className="bg-[#524d4d] text-center p-1 mt-1 mb-0 text-white text-xl leading-6">
-          <a className="text-white no-underline text-xl" href="https://epaper.samakal.com/pages/2024-08-19/nogor-edition">সব পাতা</a>
-        </p>
-        <div className="overflow-auto whitespace-nowrap py-4 px-2 mx-2">
-          {pagesData.map((page, index) => (
-            <PagePreview key={index} imageUrl={page.imageUrl} pageNumber={index + 1} />
-          ))}
-        </div>
+    <div className="flex items-center justify-center md:px-28 py-12">
+      <div className="grid grid-cols-6 gap-x-4 gap-y-8">
+        {pagesData.map((page, index) => (
+          <div key={index} className="flex flex-col items-center justify-center">
+            <img
+              style={{ border: '1px solid grey' }}
+              src={page.preview}
+              alt={`পেজ ${index + 1}`}
+            />
+            <div className="bg-[#524D4D] w-full flex items-center justify-center text-white font-semibold p-1">
+              পাতা {convertToBengaliNumerals(index + 1)}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

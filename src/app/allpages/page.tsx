@@ -26,7 +26,7 @@ const AllPages = () => {
                     <div key={index} className="flex flex-col items-center justify-center">
                         <img
                             style={{ border: '1px solid grey' }}
-                            src={page.imageUrl}
+                            src={page.preview}
                             alt={`Page ${index + 1}`}
                         />
                         <div className="bg-[#524D4D] w-full flex items-center justify-center text-white font-semibold p-1">
